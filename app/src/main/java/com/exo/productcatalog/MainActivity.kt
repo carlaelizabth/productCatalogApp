@@ -3,15 +3,10 @@ package com.exo.productcatalog
 import android.app.AlertDialog
 import android.content.Intent
 import android.os.Bundle
-import android.telecom.Call.Details
 import android.util.Log
-import android.view.View
 import android.widget.Toast
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.os.bundleOf
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.exo.productcatalog.connection.ProductFirst
 import com.exo.productcatalog.connection.ProductsApi
@@ -22,7 +17,6 @@ import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import retrofit2.create
 
 class MainActivity : AppCompatActivity() {
 
@@ -51,7 +45,8 @@ class MainActivity : AppCompatActivity() {
                     val productAdapter = ProductAdapter(products) {product ->
                         product.id.let { id ->
                             val bundle = bundleOf(
-                                "id" to id
+                                "id" to id,
+                                "price" to product.price
                             )
 
                             val intent = Intent(this@MainActivity,Details::class.java)

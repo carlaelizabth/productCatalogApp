@@ -12,6 +12,21 @@
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.35766423" />
 
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.68" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.39" />
+
+
     <ImageView
         android:id="@+id/ivProductImage"
         android:layout_width="0dp"
@@ -28,11 +43,25 @@
         android:id="@+id/tvProductName"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:shadowColor="@color/peaty_brown"
         android:text="@string/product_name"
         android:textAppearance="?attr/textAppearanceHeadline6"
+        android:textColor="@color/peaty_brown"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/guideline"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvSProductPrice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/sign"
+        android:textAppearance="?attr/textAppearanceBody1"
+        android:textColor="@color/kumera"
+        app:layout_constraintEnd_toStartOf="@id/tvProductPrice"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/guideline"
+        app:layout_constraintTop_toBottomOf="@+id/tvProductName" />
 
     <TextView
         android:id="@+id/tvProductPrice"
@@ -40,8 +69,10 @@
         android:layout_height="wrap_content"
         android:text="@string/price"
         android:textAppearance="?attr/textAppearanceBody1"
+        android:textColor="@color/kumera"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/guideline"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/guideline3"
         app:layout_constraintTop_toBottomOf="@+id/tvProductName" />
 
     <TextView
@@ -50,9 +81,22 @@
         android:layout_height="wrap_content"
         android:text="@string/supplier"
         android:textAppearance="?attr/textAppearanceBody2"
+        android:textColor="@color/kumera"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/guideline"
         app:layout_constraintTop_toBottomOf="@+id/tvProductPrice" />
+
+    <TextView
+        android:id="@+id/tvSShipping"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/cost_shipping"
+        android:textAppearance="?attr/textAppearanceBody2"
+        android:textColor="@color/ns"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/guideline"
+        app:layout_constraintTop_toBottomOf="@+id/tvProductSupplier" />
 
     <TextView
         android:id="@+id/tvShippingCost"
@@ -60,8 +104,12 @@
         android:layout_height="wrap_content"
         android:text="@string/shipping_cost"
         android:textAppearance="?attr/textAppearanceBody2"
+        android:textColor="@color/ns"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/guideline"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/guideline2"
         app:layout_constraintTop_toBottomOf="@+id/tvProductSupplier" />
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

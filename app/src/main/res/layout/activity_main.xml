@@ -9,12 +9,14 @@
     tools:context=".MainActivity" >
 
     <TextView
-        android:id="@+id/tvProducDetails"
+        android:id="@+id/tvProductDetails"
         android:layout_width="match_parent"
-        android:layout_height="43dp"
+        android:layout_height="50dp"
         android:background="@color/half_dutch"
         android:gravity="center"
-        android:text="Productos"
+        android:shadowColor="@color/peaty_brown"
+        android:text="@string/productos"
+        android:textSize="22sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -22,28 +24,17 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0" />
 
-    <ImageView
-        android:id="@+id/ivAvatar"
-        android:layout_width="25dp"
-        android:layout_height="36dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.956"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
-        tools:srcCompat="@tools:sample/avatars" />
-
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvListProducts"
-        android:layout_width="379dp"
-        android:layout_height="728dp"
-        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="60dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvProducDetails"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

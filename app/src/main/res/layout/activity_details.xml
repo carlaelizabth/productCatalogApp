@@ -44,7 +44,7 @@
                 android:id="@+id/constraintLayout"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="48dp"
+                android:layout_marginTop="60dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
@@ -57,48 +57,61 @@
 
             <TextView
                 android:id="@+id/tvProductName"
-                android:layout_width="276dp"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-
                 android:paddingStart="16dp"
-                android:text="Product Name"
+                android:paddingTop="12dp"
+                android:paddingEnd="16dp"
+                android:paddingBottom="12dp"
+                android:text="@string/product_name"
                 android:textAppearance="?attr/textAppearanceHeadline6"
+                android:textColor="@color/peaty_brown"
+                android:textColorLink="@color/peaty_brown"
+                android:textSize="22sp"
                 app:layout_constraintBottom_toBottomOf="@+id/constraintLayout"
                 app:layout_constraintEnd_toStartOf="@+id/tvProductPrice"
-                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintHorizontal_bias="0.444"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.545" />
+                app:layout_constraintVertical_bias="0.3" />
 
             <TextView
                 android:id="@+id/tvProductPrice"
-                android:layout_width="83dp"
-                android:layout_height="26dp"
+                android:layout_width="wrap_content"
+                android:layout_height="32dp"
                 android:layout_marginTop="12dp"
-                android:layout_marginEnd="16dp"
-                android:paddingRight="16dp"
-                android:text="Price"
+                android:layout_marginEnd="28dp"
+                android:gravity="center"
+                android:paddingStart="16dp"
+                android:paddingTop="8dp"
+                android:paddingEnd="16dp"
                 android:textAppearance="?attr/textAppearanceSubtitle1"
                 android:textColor="@android:color/holo_red_dark"
+                android:textSize="20sp"
                 app:layout_constraintBottom_toBottomOf="@+id/constraintLayout"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.0" />
+                app:layout_constraintVertical_bias="0.0"
+                tools:text="@string/dPrice" />
 
             <TextView
                 android:id="@+id/tvProductDescription"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:paddingStart="16dp"
+                android:paddingTop="12dp"
+                android:paddingEnd="16dp"
                 android:paddingBottom="8dp"
-                android:text="Description"
+                android:shadowColor="@color/kumera"
+                android:text="@string/description"
                 android:textAppearance="?attr/textAppearanceBody1"
+                android:textSize="18sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
-                app:layout_constraintVertical_bias="0.0" />
+                app:layout_constraintVertical_bias="0.3" />
 
             <!-- TextView para la descripción del producto -->
         </androidx.constraintlayout.widget.ConstraintLayout>
@@ -106,28 +119,19 @@
         <TextView
             android:id="@+id/tvProducDetails"
             android:layout_width="match_parent"
-            android:layout_height="43dp"
+            android:layout_height="50dp"
             android:background="@color/half_dutch"
             android:gravity="center"
-            android:text="Detalles del producto"
+            android:shadowColor="@color/peaty_brown"
+            android:text="@string/detalles_del_producto"
+            android:textColorLink="@color/peaty_brown"
+            android:textSize="22sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.0" />
-
-        <ImageView
-            android:id="@+id/ivAvatar"
-            android:layout_width="25dp"
-            android:layout_height="36dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.956"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0"
-            tools:srcCompat="@tools:sample/avatars" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

@@ -4,15 +4,11 @@ import android.app.AlertDialog
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import com.bumptech.glide.Glide
 import com.exo.productcatalog.connection.ProductDetail
 import com.exo.productcatalog.connection.ProductsApi
 import com.exo.productcatalog.databinding.ActivityDetailsBinding
-import com.exo.productcatalog.databinding.ActivityMainBinding
 import com.exo.productcatalog.util.Constants
 import retrofit2.Call
 import retrofit2.Callback
@@ -30,6 +26,7 @@ class Details : AppCompatActivity() {
 
         val bundle = intent.extras
         val id = bundle?.getString("id","")
+        val productPrice = intent.extras?.getString("price")
         Log.d(Constants.LOGTAG, getString(R.string.tIdRecibido, id))
 
         val retrofit = Retrofit.Builder()
@@ -45,8 +42,8 @@ class Details : AppCompatActivity() {
             ) {
                 binding.apply {
                     tvProductName.text = response.body()?.name
-                   // tvProductPrice =
-                    tvProducDetails.text = response.body()?.desc
+                    tvProductPrice.text = getString(R.string.tvPrice, productPrice)
+                    tvProductDescription.text = response.body()?.desc
 
                     Glide.with(this@Details)
                         .load(response.body()?.imag_url)

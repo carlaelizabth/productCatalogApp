@@ -11,5 +11,13 @@
     <string name="tCancel">Cancelar</string>
     <string name="product_description">Imagen del producto</string>
     <string name="tIdRecibido">ID recibido %s</string>
+    <string name="tvPrice">$%s</string>
+    <string name="dPrice">Price</string>
+    <string name="cost_shipping">Costo de envío: $</string>
+    <string name="sign">$</string>
+    <string name="description">Description</string>
+    <string name="detalles_del_producto">Detalles del producto</string>
+    <string name="productos">Productos</string>
+
 
 </resources>
