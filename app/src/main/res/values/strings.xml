@@ -10,5 +10,6 @@
     <string name="tReintentar">Reintentar</string>
     <string name="tCancel">Cancelar</string>
     <string name="product_description">Imagen del producto</string>
+    <string name="tIdRecibido">ID recibido %s</string>
 
 </resources>

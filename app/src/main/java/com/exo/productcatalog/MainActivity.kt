@@ -1,6 +1,7 @@
 package com.exo.productcatalog
 
 import android.app.AlertDialog
+import android.content.Intent
 import android.os.Bundle
 import android.telecom.Call.Details
 import android.util.Log
@@ -53,7 +54,9 @@ class MainActivity : AppCompatActivity() {
                                 "id" to id
                             )
 
-                         //   val intent = Intent(this@MainActivity,Details::class.java)
+                            val intent = Intent(this@MainActivity,Details::class.java)
+                            intent.putExtras(bundle)
+                            startActivity(intent)
                         }
                     }
 
