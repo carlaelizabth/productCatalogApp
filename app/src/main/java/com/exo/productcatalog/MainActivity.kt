@@ -1,13 +1,17 @@
 package com.exo.productcatalog
 
+import android.app.AlertDialog
 import android.os.Bundle
 import android.telecom.Call.Details
 import android.util.Log
+import android.view.View
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.os.bundleOf
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.exo.productcatalog.connection.ProductFirst
 import com.exo.productcatalog.connection.ProductsApi
 import com.exo.productcatalog.databinding.ActivityMainBinding
@@ -53,13 +57,27 @@ class MainActivity : AppCompatActivity() {
                         }
                     }
 
-                    binding.
+                    binding.rvListProducts.apply {
+                        layoutManager = LinearLayoutManager(this@MainActivity)
+                        adapter = productAdapter
+                    }
 
                 }
             }
 
             override fun onFailure(p0: Call<List<ProductFirst>>, p1: Throwable) {
-                TODO("Not yet implemented")
+                Toast.makeText(this@MainActivity, getString(R.string.tFConnection), Toast.LENGTH_SHORT).show()
+                AlertDialog.Builder(this@MainActivity)
+                    .setTitle(getString(R.string.tFConnection))
+                    .setMessage(getString(R.string.tQFail))
+                    .setPositiveButton(getString(R.string.tReintentar)) { dialog, _ ->
+                        dialog.dismiss()
+                        productsApi.getProducts(Constants.PRODUCTS_URL).enqueue(this)
+                    }
+                    .setNegativeButton(getString(R.string.tCancel)) { dialog, _ ->
+                        dialog.dismiss()
+                    }
+                    .show()
             }
 
         })

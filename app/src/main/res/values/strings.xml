@@ -5,5 +5,10 @@
     <string name="price">Price</string>
     <string name="supplier">Supplier</string>
     <string name="shipping_cost">Shipping Cost</string>
+    <string name="tFConnection">Error de conexión</string>
+    <string name="tQFail">No se pudo conectar al servidor. ¿Desea reintentar?</string>
+    <string name="tReintentar">Reintentar</string>
+    <string name="tCancel">Cancelar</string>
+    <string name="product_description">Imagen del producto</string>
 
 </resources>
