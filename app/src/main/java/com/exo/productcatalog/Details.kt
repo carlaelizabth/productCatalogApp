@@ -6,10 +6,11 @@ import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
-import com.exo.productcatalog.connection.ProductDetail
+import com.exo.productcatalog.connection.Product
 import com.exo.productcatalog.connection.ProductsApi
 import com.exo.productcatalog.databinding.ActivityDetailsBinding
 import com.exo.productcatalog.util.Constants
+import com.google.gson.Gson
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -26,7 +27,9 @@ class Details : AppCompatActivity() {
 
         val bundle = intent.extras
         val id = bundle?.getString("id","")
-        val productPrice = intent.extras?.getString("price")
+        val productJson = bundle?.getString("product")
+        val product = Gson().fromJson(productJson,Product::class.java)
+   //     val productPrice = intent.extras?.getString("price")
         Log.d(Constants.LOGTAG, getString(R.string.tIdRecibido, id))
 
         val retrofit = Retrofit.Builder()
@@ -34,24 +37,24 @@ class Details : AppCompatActivity() {
             .addConverterFactory(GsonConverterFactory.create())
             .build()
         val productsApi = retrofit.create(ProductsApi::class.java)
-        val call: Call<ProductDetail> = productsApi.getProductDetail(id!!)
-        call.enqueue(object: Callback<ProductDetail> {
+        val call: Call<Product> = productsApi.getProductDetail(id!!)
+        call.enqueue(object: Callback<Product> {
             override fun onResponse(
-                p0: Call<ProductDetail>,
-                response: Response<ProductDetail>
+                p0: Call<Product>,
+                response: Response<Product>
             ) {
                 binding.apply {
-                    tvProductName.text = response.body()?.name
-                    tvProductPrice.text = getString(R.string.tvPrice, productPrice)
-                    tvProductDescription.text = response.body()?.desc
+                    tvProductName.text = response.body()?.productName
+                    tvProductPrice.text = getString(R.string.tvPrice, product!!.price)
+                    tvProductDescription.text = response.body()?.pDescription
 
                     Glide.with(this@Details)
-                        .load(response.body()?.imag_url)
+                        .load(product.imageUrl)
                         .into(ivProductImage)
                 }
             }
 
-            override fun onFailure(p0: Call<ProductDetail>, p1: Throwable) {
+            override fun onFailure(p0: Call<Product>, p1: Throwable) {
                 Toast.makeText(this@Details, getString(R.string.tFConnection), Toast.LENGTH_SHORT).show()
                 AlertDialog.Builder(this@Details)
                     .setTitle(getString(R.string.tFConnection))

@@ -11,12 +11,12 @@ interface ProductsApi {
     @GET
     fun getProducts(
         @Url url: String
-    ): Call<List<ProductFirst>>
+    ): Call<List<Product>>
 
     // https://www.serverbpw.com/cm/store/product_detail.php?id=6541
     @GET("cm/store/product_detail.php?id=")
     fun getProductDetail(
         @Query("id")id: String
-    ): Call<ProductDetail>
+    ): Call<Product>
 
 }
